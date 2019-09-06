@@ -104,8 +104,8 @@ while($row = mysqli_fetch_assoc($result))
         <th>NO</th>
         <th>Employee ID</th>
         <th>Employee Email</th>
-        <th>Pre Score</th>
-        <th>Post Score</th>
+        <th>Pre Assessment</th>
+        <th>Post Assessment</th>
         <th>Total Score</th>
     </tr>
     <?php
@@ -123,7 +123,7 @@ while($row = mysqli_fetch_assoc($result))
     </tr>
     </table>
     <div style="text-align:center;">
-    <button type="submit" class="button1">Recommend</button>
+    <button type="submit" class="button1">Submit</button>
     </div>
     </form>
 </div>

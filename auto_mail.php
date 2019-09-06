@@ -210,7 +210,7 @@ while($row = mysqli_fetch_assoc($result))
     <?php } ?>
     </table>
     <div style="text-align:center;">
-    <button type="submit" class="button1">Recommend</button>
+    <button type="submit" class="button1">Submit</button>
     </div>
     </form>
 </div>

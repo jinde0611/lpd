@@ -29,8 +29,9 @@ rel='stylesheet' type='text/css'>
   <style>
   .nav-link{
   color:white; 
-  font-size: 1rem; 
+  font-size: 14px; 
   font-weight: 400;
+  font-family: montserrat;
   }
   </style>
  <body>   

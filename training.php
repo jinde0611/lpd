@@ -20,7 +20,7 @@ $('#file-upload').change(function() {
             <h3>Welcome</h3>
         </div>
             <div class="col-md-9 register-right">
-            <form action="process\process_add_training.php" method="post" >
+            <form action="process\process_add_training.php" method="post" enctype="multipart/form-data">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Add a Training</h3>
@@ -49,7 +49,7 @@ $('#file-upload').change(function() {
                                         <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                                     </div>
                                 <div class="custom-file ">
-                                    <input id="file-upload" type="file" class="custom-file-input" id="inputGroupFile01"
+                                    <input name="uploaded" id="file-upload" type="file" class="custom-file-input" id="inputGroupFile01"
                                     aria-describedby="inputGroupFileAddon01" accept=".ics">
                                     <label class="custom-file-label" for="inputGroupFile01">.ics file</label>
                                 </div>
