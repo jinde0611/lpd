@@ -26,12 +26,8 @@ while($row = mysqli_fetch_assoc($result))
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                
                     <div class="col-sm-4">
 						<h2>Training Details</h2>
-					</div>
-					<div class="col-sm-8">						
-						<a href="training_detail.php?id=" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
 					</div>
                 </div>
             </div>
@@ -55,20 +51,6 @@ while($row = mysqli_fetch_assoc($result))
 							<label>Name</label>
 							<input type="text" class="form-control">
 						</div>
-						<div class="filter-group">
-							<label>Location</label>
-							<select class="form-control">
-								<option>All</option>
-								<option>IDO 1</option>
-								<option>IDO 2</option>
-								<option>IDO 3</option>
-								<option>IDO 4</option>
-                                <option>IDO 5</option>
-                                <option>IDO 6</option>								
-							</select>
-						</div>
-						
-						<span class="filter-icon"><i class="fa fa-filter"></i></span>
                     </div>
                 </div>
 			</div>

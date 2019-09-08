@@ -66,13 +66,7 @@ $name=$_SESSION['name'];
     padding:5px;
   }
 
-  /* demo styles */
-
-  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-  body{
-    
-    font-family: 'Roboto', sans-serif;
-  }
+  
   section{
     margin: 25px;
     

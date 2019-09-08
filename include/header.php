@@ -14,8 +14,8 @@ if ($conn->connect_error)
     <script  src="https://code.jquery.com/jquery-3.4.1.js"  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' 
-rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Fira Sans Condensed' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" href="node_modules\bootstrap\dist\css\bootstrap.css" rel="stylesheet">
     <link type="text/css" href="node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
@@ -27,15 +27,18 @@ rel='stylesheet' type='text/css'>
       
   </head>
   <style>
+  body{
+    font-family: 'Fira Sans Condensed';
+  }
+
   .nav-link{
   color:white; 
   font-size: 14px; 
   font-weight: 400;
-  font-family: montserrat;
-  }
+    }
   </style>
  <body>   
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
+<nav class="navbar navbar-expand-lg  sticky-top " style="background-color:#009688 ">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -58,10 +61,8 @@ rel='stylesheet' type='text/css'>
         {?>
         <a  class="nav-link"  href="process/process_nominations.php">Nominations</a>
     <a  class="nav-link"  href="process/process_nominations.php"><?php echo $_SESSION['name'];?></a>
-  <form class="form-inline my-2 my-lg-0" action="logout.php">   
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
-    </form>
-    
+    <a  class="nav-link"  href="logout.php">Logout</a>
+     
     <?php }
 ?>
    

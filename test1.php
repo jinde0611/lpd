@@ -1,6 +1,5 @@
 <style>
 body {
-  font-family: 'Montserrat', Helvetica, sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
