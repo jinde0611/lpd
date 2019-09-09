@@ -13,7 +13,7 @@ $('#file-upload').change(function() {
   $(this).prev('label').text(file);
 });
 </script>
-<div class="container register">
+<div class="container register" style="background: -webkit-linear-gradient(left, #0cbd8c, #40ae69);">
     <div class="row">
         <div class="col-md-3 register-left" style="padding-top:70px">
             <img src="rocket2.png" alt=""/>
