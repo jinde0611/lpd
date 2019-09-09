@@ -20,24 +20,20 @@ if ($conn->connect_error)
     <link type="text/css" href="node_modules\bootstrap\dist\css\bootstrap.css" rel="stylesheet">
     <link type="text/css" href="node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="node_modules\bootstrap\dist\css\bootstrap-grid.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="\LPD\style.css">
     <link type="text/css" href="node_modules\bootstrap\dist\css\bootstrap-reboot.css" rel="stylesheet">
     <script type="text/javascript" src="node_modules\bootstrap\dist\js\bootstrap.js"></script>
     <script type="text/javascript" src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
       
   </head>
   <style>
-  body{
-    font-family: 'Fira Sans Condensed';
-  }
-
-  .nav-link{
+   .nav-link{
   color:white; 
   font-size: 14px; 
   font-weight: 400;
     }
   </style>
- <body>   
+ <body style="font-family:'Fira Sans Condensed';">   
 <nav class="navbar navbar-expand-lg  sticky-top " style="background-color:#009688 ">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

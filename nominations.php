@@ -5,7 +5,7 @@ $name=$_SESSION['name'];
 ?>
 
 <style>
-  
+ 
     h1{
     font-size: 35px;
     color: black  ;
@@ -23,7 +23,7 @@ $name=$_SESSION['name'];
 
     
   .tbl-header{
-    background-color: #4835d4;
+    background-color: #009688;
     border-radius:10px 10px 10px 10px;
   }
   .tbl-content{
@@ -31,7 +31,7 @@ $name=$_SESSION['name'];
     overflow-x:auto;
     margin-top: 0px;
     border: 1px solid;
-    background-color: #4835d4;
+    background-color: #009688;
     
     ;
   }
@@ -59,7 +59,7 @@ $name=$_SESSION['name'];
   .heading{
     font-weight: 500;
     font-size: 30px;
-    background-color: #4835d4;
+    background-color: #009688;
     text-align: center;
     border-radius:10px 10px 10px 10px ;
     color:white;
@@ -144,5 +144,7 @@ while($row = mysqli_fetch_assoc($result))
     </table>
   </div>
 </section>
-
+<?php
+include('include/footer.php');
+?>  
 
