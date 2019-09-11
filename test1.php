@@ -1,34 +1,53 @@
+<?php
+include('include/header.php');
+?>
 <style>
-body {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.file {
+  visibility: hidden;
+  position: absolute;
 }
 
-
-.button1 {
-  background: #76B3FA;
-  border-radius: 100px;
-  padding: 20px 60px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.45em;
-  margin: 0 15px;
-}
-
-/* Hover state animation applied here */
-.button1:hover { 
-  -webkit-animation: hover 1200ms linear 2 alternate;
-  animation: hover 1200ms linear 2 alternate;
-}
-
-/* Active state animation applied here */
-.button1:active {
-  -webkit-animation: active 1200ms ease 1 alternate;
-  animation: active 1200ms ease 1 alternate; 
-  background: #5F9BE0;
-}
 </style>
-<a href="#" class="button1">Recommend</a>
+<script>
+$(document).on('click', '.browse', function(){
+  var file = $(this).parent().parent().parent().find('.file');
+  file.trigger('click');
+});
+$(document).on('change', '.file', function(){
+  $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+});
+</script>
+<div class="container">
+  
+  <div class="form-group">
+    <input type="file" name="img[]" class="file">
+    <div class="input-group col-xs-12">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+      <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+      <span class="input-group-btn">
+        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="file" name="img[]" class="file">
+    <div class="input-group col-xs-12">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+      <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+      <span class="input-group-btn">
+        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="file" name="img[]" class="file">
+    <div class="input-group col-xs-12">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+      <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+      <span class="input-group-btn">
+        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+      </span>
+    </div>
+  </div>
+
+</div>
