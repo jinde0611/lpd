@@ -13,6 +13,22 @@ $('#file-upload').change(function() {
   $(this).prev('label').text(file);
 });
 </script>
+<style>
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+
+</style>
+<script>
+$(document).on('click', '.browse', function(){
+  var file = $(this).parent().parent().parent().find('.file');
+  file.trigger('click');
+});
+$(document).on('change', '.file', function(){
+  $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+});
+</script>
 <div class="container register" style="background: -webkit-linear-gradient(left, #0cbd8c, #40ae69);">
     <div class="row">
         <div class="col-md-3 register-left" style="padding-top:70px">
@@ -27,24 +43,24 @@ $('#file-upload').change(function() {
                         <div class="row register-form">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="t_name" class="form-control" placeholder="Training Name" />
+                                    <input type="text" name="t_name" class="form-control" placeholder="Training Name" required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" name="t_date"class="form-control" placeholder="Training Date"  />
+                                    <input type="date" name="t_date"class="form-control" placeholder="Training Date" required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="t_size" class="form-control" placeholder="Batch Size"  />
+                                    <input type="text" name="t_size" class="form-control" placeholder="Batch Size" required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="t_status" class="form-control" placeholder="Status"  />
+                                    <input type="text" name="t_status" class="form-control" placeholder="Status" required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="t_room" class="form-control" placeholder="Enter Meeting Room"  />
+                                    <input type="text" name="t_room" class="form-control" placeholder="Enter Meeting Room" required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="t_nomination" class="form-control"  placeholder="User Nominational per PL" value="" />
+                                    <input type="text" name="t_nomination" class="form-control"  placeholder="User Nominational per PL" value="" required />
                                 </div>
-                                <div class="input-group">
+                                <!--<div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                                     </div>
@@ -53,6 +69,16 @@ $('#file-upload').change(function() {
                                     aria-describedby="inputGroupFileAddon01" accept=".ics">
                                     <label class="custom-file-label" for="inputGroupFile01">.ics file</label>
                                 </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <input type="file"  class="file" accept=".ics">
+                                    <div class="input-group col-xs-12">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                                        <input type="text" name="uploaded" class="form-control input-lg"  placeholder="Upload Image" >
+                                        <span class="input-group-btn">
+                                            <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-md-7">
                                 <input type="submit" name="txtbutton" class="btnRegister"  value="ADD"/>

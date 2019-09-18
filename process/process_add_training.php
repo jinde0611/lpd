@@ -23,15 +23,19 @@ $t_size = $_POST['t_size'];
 $t_status = $_POST['t_status'];
 $t_room = $_POST['t_room'];
 $t_nomination = $_POST['t_nomination'];
+$x= $_POST['uploaded'];
+print_r($x);
 
 $temp = explode(".", $_FILES["uploaded"]["name"]);
-print_r($temp);
 
 $newfilename = round(microtime(true)).'.'. end($temp);
 
 $db_path =$folder.$newfilename;
 
-$listtype = array('.ics'=>'application/ics');
+$listtype = array(
+  '.ics'=>'application/ics',
+  '.doc'=>'application/msword'
+);
 
 
 if ( is_uploaded_file( $_FILES['uploaded']['tmp_name'] ) )
@@ -43,6 +47,7 @@ if($key = array_search($_FILES['uploaded']['type'],$listtype))
 include('../include/connect.php');
 
 $file_path = substr($db_path, 3);
+print_r($file_path);
 $sql = "INSERT INTO training_detail VALUES (($id+1),'$t_name','$t_date','$t_size','$t_status','$t_room','$t_nomination','$file_path')";
 print_r($sql);
 if (mysqli_query($conn, $sql)) {
