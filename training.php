@@ -71,10 +71,10 @@ $(document).on('change', '.file', function(){
                                 </div>
                                 </div>-->
                                 <div class="form-group">
-                                    <input type="file"  class="file" accept=".ics">
+                                    <input type="file" name="uploaded" class="file" accept=".ics">
                                     <div class="input-group col-xs-12">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-                                        <input type="text" name="uploaded" class="form-control input-lg"  placeholder="Upload Image" >
+                                        <input type="text"  class="form-control input-lg"  placeholder="Upload Image" >
                                         <span class="input-group-btn">
                                             <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
                                         </span>
