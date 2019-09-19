@@ -14,8 +14,9 @@ while($row = mysqli_fetch_assoc($result1))
         $id = $row["t_id"];
   }
   
-define('BASE_URL', '');
+define('BASE_URL', '../');
 $folder = BASE_URL."ICS/";
+
   
 $t_name = $_POST['t_name'];
 $t_date = $_POST['t_date'];
@@ -35,23 +36,19 @@ $db_path =$folder.$newfilename;
 $listtype = array(
   '.ics'=>'application/ics'
 );
-var_dump($listtype);
+
 
 
 if ( is_uploaded_file( $_FILES['uploaded']['tmp_name'] ) )
 {
   
-if($key = array_search($_FILES['uploaded']['type'],$listtype))
-{
-  echo 1;
-  if (move_uploaded_file($_FILES['uploaded']  ['tmp_name'],$folder.$newfilename))
+if (move_uploaded_file($_FILES['uploaded']  ['tmp_name'],$folder.$newfilename))
 {
 include('../include/connect.php');
 
 $file_path = substr($db_path, 3);
-print_r($file_path);
+
 $sql = "INSERT INTO training_detail VALUES (($id+1),'$t_name','$t_date','$t_size','$t_status','$t_room','$t_nomination','$file_path')";
-print_r($sql);
 if (mysqli_query($conn, $sql)) {
     header("Refresh:0,URL=../training_detail.php");
       //echo "New record created successfully";
@@ -60,7 +57,8 @@ if (mysqli_query($conn, $sql)) {
   }
 }
 }
-}
+
+
 else
 {
 echo "File Type Should Be .ics";

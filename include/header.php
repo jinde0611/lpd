@@ -47,6 +47,9 @@ if ($conn->connect_error)
       <li class="nav-item">
         <a class="nav-link" href="training.php">Add Training</a>
       </li>  
+      <li class="nav-item">
+        <a class="nav-link" href="training_lpd.php">Training Details</a>
+      </li> 
     </ul>
     
   </div>
