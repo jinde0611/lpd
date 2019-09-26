@@ -178,14 +178,16 @@ while($row = mysqli_fetch_assoc($result))
       $arrayVals[] = $row;
   }
 ?>
-<div class="container" style="padding-top:45px; text-align:center;">
+<div class="container" style="text-align:center;">
     <h3>Pre Assessment Score for <?php echo $id;?> (<?php echo $id1; ?>)</h3>
-    <form action="process/process_add_attendance.php" method="post">
+    <form action="training_lpd.php" method="post">
     <table class="rwd-table" style="text-align:center; margin-left:auto; margin-right:auto;" >
     <tr>
         <th>NO</th>
         <th>Employee Name</th>
         <th>Email ID </th>
+        <th>Pre Assessment</th>
+        <th>Post Assessment</th>
         <th>Attendence</th>
     </tr>
     <?php
@@ -196,6 +198,8 @@ while($row = mysqli_fetch_assoc($result))
         <td data-th="Movie Title"><?= $i; ?></td>
         <td data-th="Genre"><?=  $row["e_name"]; ?></td>
         <td data-th="Genre"><?=  $row["e_email"]; ?></td>
+        <td ><input name="pre<?= $i; ?>" type="text" size="10"></td>
+        <td ><input name="post<?= $i; ?>" type="text" size="10"></td> 
         <td data-th="Year">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn active">

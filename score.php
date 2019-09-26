@@ -5,6 +5,8 @@ $id1=$_REQUEST['id1'];
 $query ="SELECT * from nominations WHERE title = '$id' AND date = '$id1'";
 $result = $conn->query($query);
 ?>
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 <link type="text/css" href="node_modules\bootstrap\dist\css\attendance.css" rel="stylesheet">
 <style>
     @import "compass/css3";
@@ -96,9 +98,9 @@ while($row = mysqli_fetch_assoc($result))
       $arrayVals[] = $row;
   }
 ?>
-<div class="container" style="padding-top:50px;">
+<div class="container" >
     <h1>Add Assessment Score for <?php echo $id;?></h1><h1> (<?php echo $id1; ?>)</h1>
-    <form action="process/process_add_score.php?id=<?php echo $id?>&id1=<?php echo $id1;?>" method="post">
+    <form action="training_lpd.php" method="post">
     <table class="rwd-table">
     <tr>
         <th>NO</th>
@@ -106,7 +108,7 @@ while($row = mysqli_fetch_assoc($result))
         <th>Employee Email</th>
         <th>Pre Assessment</th>
         <th>Post Assessment</th>
-        <th>Total Score</th>
+        <th>Attendence</th>
     </tr>
     <?php
                 foreach ($arrayVals as $row) {
@@ -118,7 +120,16 @@ while($row = mysqli_fetch_assoc($result))
         <td ><input name="email<?= $i; ?>" id="transparent" type="text" value="<?=  $row["e_email"]; ?>" size="50"></td>
         <td ><input name="pre<?= $i; ?>" type="text" size="10"></td>
         <td ><input name="post<?= $i; ?>" type="text" size="10"></td> 
-        <td ><input name="total<?= $i; ?>" type="text" size="10"></td>
+        <td data-th="Year">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn active">
+              <input type="radio" name='<?php echo $i;?>' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Present</span>
+            </label>
+            <label class="btn">
+              <input type="radio" name='<?php echo $i;?>'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Absent</span>
+            </label>
+          </div>
+        </td>
         <?php } ?>  
     </tr>
     </table>

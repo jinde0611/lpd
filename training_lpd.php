@@ -60,8 +60,8 @@ while($row = mysqli_fetch_assoc($result))
                         <th>No</th>
                         <th>Training Name</th>
 						<th>Training Date</th>					
-                        <th>Add Score</th>						
-                        <th>Add Attendance</th>
+                        <th>Add Training Details</th>						
+                        
                         
                         
                         
@@ -84,7 +84,7 @@ while($row = mysqli_fetch_assoc($result))
 						<td><?=  $row["t_date"]; ?></td>
                         <td><a href="score.php?id=<?php echo $row["t_name"];?>&id1=<?php echo $row["t_date"];?>"  title="Add Pre Score" data-toggle="tooltip"><i class="material-icons">add_circle_outline</i></a></td>                        
 						
-                        <td><a href="auto_mail.php?id=<?php echo $row["t_name"];?>&id1=<?php echo $row["t_date"];?>" title="Add Attendance"  data-toggle="tooltip"><i class="material-icons">person_add</i></a></td>
+                        
                         
                     <?php } ?>
                         </tr>
