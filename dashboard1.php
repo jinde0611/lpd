@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 <link type="text/css" href="node_modules\bootstrap\dist\css\style.css" rel="stylesheet">
-<script src="https://rawgit.com/unconditional/jquery-table2excel/master/src/jquery.table2excel.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -46,7 +46,7 @@ while($row = mysqli_fetch_assoc($result))
                     </div>
                     <div class="col-sm-3 align-item-center">
                         
-                    <button type="button" class="btn btn-primary" id="export-btn"><i class="fa fa-download"></i></button>
+                    <button type="button" class="btn btn-primary" id="button-excel"><i class="fa fa-download"></i></button>
                     <div class="filter-group align-items-baseline">
 							<span><h3>Export</h3></span>
 						</div>
@@ -62,7 +62,7 @@ while($row = mysqli_fetch_assoc($result))
                 </div>
             </div>
            
-            <div id="resultsTable">
+            <div id="simpleTable1">
             <table class="pl-2 table table-striped table-hover" style="text-align:center;">
                 <thead >
                     <tr class="noEx1">
@@ -89,6 +89,14 @@ while($row = mysqli_fetch_assoc($result))
       {
         foreach ($arrayVals as $row) {
                 $i++;
+                
+                $query1 ="SELECT * from training_detail WHERE t_name = '$row[title]' ";
+                
+                $result1 = $conn->query($query1);
+                
+                $row1 = mysqli_fetch_assoc($result1);
+                
+                
             ?>
                    
                     <tr>
@@ -97,15 +105,15 @@ while($row = mysqli_fetch_assoc($result))
 						<td><?=  $row["e_id"]; ?></td>
                         <td><?=  $row["title"]; ?></td> 
                         <td><?=  $row["date"]; ?></td>
-                        <td></td>
+                        <td><?=  $row1["t_room"]; ?></td>
 						<td><?=  $row["status"]; ?></td>
                         <td></td>  
                         <td><?=  $row["e_manager"]; ?></td>
-                        <td><?=  $row["status"]; ?></td>
-						<td><?=  $row["status"]; ?></td>
-                        <td><?=  $row["status"]; ?></td>  
-                        <td><?=  $row["status"]; ?></td>
-                        <td><?=  $row["status"]; ?></td>
+                        <td><?=  $row["attendance"]; ?></td>
+						<td><?=  $row["total"]; ?></td>
+                        <td><?=  $row["pre_score"]; ?></td>  
+                        <td><?=  $row["post_score"]; ?></td>
+                        <td>Yes</td>
                         <?php } }?>
                         </tr>
                         <?php 
@@ -134,19 +142,11 @@ while($row = mysqli_fetch_assoc($result))
     </div> 
     <script src="table2excel.js" type="text/javascript"></script>
     <script type="text/javascript">
-       jQuery(document).ready(function() {
-    
-    $('#export-btn').on('click', function(e){
-        e.preventDefault();
-        ResultsToTable();
-    });
-    
-    function ResultsToTable(){    
-        $("#resultsTable").table2excel({
-            exclude: ".noExl",
-            name: "Results"
-        });
-    }
+       let button = document.querySelector("#button-excel");
+
+button.addEventListener("click", e => {
+  let table = document.querySelector("#simpleTable1");
+  TableToExcel.convert(table);
 });
     </script>   
 
