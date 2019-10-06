@@ -56,14 +56,14 @@ while($row = mysqli_fetch_assoc($result))
 						<button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
 						<div class="filter-group">
 							<label>Name</label>
-							<input type="text" class="form-control">
+							<input type="text" id="myInput" onkeyup="myFunction()" class="form-control">
 						</div>
                     </div>
                 </div>
             </div>
            
             <div id="simpleTable1">
-            <table class="pl-2 table table-striped table-hover" style="text-align:center;">
+            <table  class="pl-2 table table-striped table-hover" style="text-align:center;">
                 <thead >
                     <tr class="noEx1">
                         <th>No</th>
@@ -83,7 +83,7 @@ while($row = mysqli_fetch_assoc($result))
           
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="myTable">
                 <?php
       if ($count >0)
       {
@@ -99,7 +99,7 @@ while($row = mysqli_fetch_assoc($result))
                 
             ?>
                    
-                    <tr>
+                    <tr >
                         <td><?= $i; ?></td>
                         <td><?=  $row["e_name"]; ?></td>
 						<td><?=  $row["e_id"]; ?></td>
@@ -143,14 +143,52 @@ while($row = mysqli_fetch_assoc($result))
     <script src="table2excel.js" type="text/javascript"></script>
     <script type="text/javascript">
        let button = document.querySelector("#button-excel");
-
-button.addEventListener("click", e => {
-  let table = document.querySelector("#simpleTable1");
-  TableToExcel.convert(table);
-});
-    </script>   
-
-    <?php
+        button.addEventListener("click", e => 
+        {
+            let table = document.querySelector("#simpleTable1");
+            TableToExcel.convert(table);
+        });
+    </script> 
     
+    <script>
+        function myFunction() 
+        {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) 
+            {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) 
+                {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) 
+                    {
+                        tr[i].style.display = "";
+                    } 
+                    else 
+                    {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+
+        
+    </script>
+    <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<?php
 include('include/footer.php');
 ?>                                		                            
