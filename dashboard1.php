@@ -23,10 +23,10 @@ while($row = mysqli_fetch_assoc($result))
     <div class="container-fluid">
     
         <div class="table-wrapper">
-            <div class="table-title">
+            <div class="table-title align-items-center">
                 <div class="row">
                     <div class="col-sm-4">
-						<h2>Training Details</h2>
+						<h4>Training Details</h4>
 					</div>
                 </div>
             </div>
