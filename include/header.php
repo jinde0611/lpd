@@ -42,9 +42,24 @@ if ($conn->connect_error)
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+    <?php 
+    if (!isset($_SESSION['username']))
+        
+        {?>
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
+        
+      
+      <?php }?>
+      <?php 
+        
+        if (isset($_SESSION['username']))
+        
+        {?>
+        <li class="nav-item active">
+            <a class="nav-link" href="training_detail.php">Home <span class="sr-only">(current)</span></a>
+          </li>
       <li class="nav-item">
         <a class="nav-link" href="training.php">Add Training</a>
       </li>  
@@ -54,14 +69,20 @@ if ($conn->connect_error)
     </ul>
     
   </div>
-  <?php 
+  
+        <ul class="navbar-nav">
+          
         
-        if (isset($_SESSION['username']))
-        
-        {?>
-        <a  class="nav-link"  href="process/process_nominations.php">Nominations</a>
-    <a  class="nav-link"  href="process/process_nominations.php"><?php echo $_SESSION['name'];?></a>
-    <a  class="nav-link"  href="logout.php">Logout</a>
+          <li class="nav-item ">
+            <a  class="nav-link"  href="process/process_nominations.php">Nominations</a>
+          </li>
+          <li class="nav-item ">
+            <a  class="nav-link"  href="process/process_nominations.php"><?php echo $_SESSION['name'];?></a>
+          </li>
+          <li class="nav-item ">
+            <a  class="nav-link"  href="logout.php">Logout</a>
+          </li>
+        </ul>
      
     <?php }
 ?>

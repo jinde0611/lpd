@@ -48,7 +48,7 @@ include('../include/connect.php');
 
 $file_path = substr($db_path, 3);
 
-$sql = "INSERT INTO training_detail VALUES (($id+1),'$t_name','$t_date','$t_size','$t_status','$t_room','$t_nomination','$file_path')";
+$sql = "INSERT INTO training_detail (t_id,t_name,t_date,t_size,t_status,t_room,t_nomination,file_path)VALUES (($id+1),'$t_name','$t_date','$t_size','$t_status','$t_room','$t_nomination','$file_path')";
 if (mysqli_query($conn, $sql)) {
     header("Refresh:0,URL=../training_detail.php");
       //echo "New record created successfully";

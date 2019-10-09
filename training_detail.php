@@ -14,6 +14,7 @@ $(document).ready(function(){
     }
 </style>
 <?php
+
 $query ="SELECT * from training_detail";
 $result = $conn->query($query);
 
