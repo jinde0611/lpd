@@ -72,12 +72,7 @@ while($row = mysqli_fetch_assoc($result))
                 foreach ($arrayVals as $row) {
                         $i++;
                    ?>
-                   <?php
                    
-                   $check ="SELECT count(n_id) from nominations WHERE title ='$row[t_name]' AND date='$row[t_date]'"; 
-                   $result1 = mysqli_query($conn, $check);
-                   $row1 = mysqli_fetch_assoc($result1);
-                   ?>
                     <tr>
                         <td><?= $i; ?></td>
                         <td><?=  $row["t_name"]; ?></td>

@@ -127,14 +127,17 @@ while($row = mysqli_fetch_assoc($result))
       {
         foreach ($arrayVals as $row) {
                 $i++;
-            ?>
+                $query1 ="SELECT * from training_detail WHERE t_id='$row[f_id]'";
+                $result1 = $conn->query($query1);
+                $row1 = mysqli_fetch_assoc($result1);
+      ?>
         <tr>
           <td width="5%"><?= $i; ?></td>
           <td width="20%"><?=  $row["e_name"]; ?></td>
           <td width="20%"><?=  $row["e_email"]; ?></td>
-          <td width="25%"><?=  $row["title"]; ?></td>
-          <td width="10%"><?=  $row["date"]; ?></td>
-          <td width="10%"><?=  $row["status"]; ?></td>
+          <td width="25%"><?=  $row1["t_name"]; ?></td>
+          <td width="10%"><?=  $row1["t_date"]; ?></td>
+          <td width="10%"><?=  $row1["t_status"]; ?></td>
           <td width="5%"><a href="date.php?id=<?php echo $row["n_id"];?>"><i class="fa fa-pencil-square-o fa-2x" ></a></i></td>
           <?php } }?>
         </tr>

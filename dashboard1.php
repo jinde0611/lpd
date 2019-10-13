@@ -90,11 +90,12 @@ while($row = mysqli_fetch_assoc($result))
         foreach ($arrayVals as $row) {
                 $i++;
                 
-                $query1 ="SELECT * from training_detail WHERE t_name = '$row[title]' ";
+                $query1 ="SELECT * from training_detail WHERE t_id = '$row[f_id]' ";
                 
                 $result1 = $conn->query($query1);
                 
                 $row1 = mysqli_fetch_assoc($result1);
+                
                 
                 
             ?>
@@ -103,11 +104,11 @@ while($row = mysqli_fetch_assoc($result))
                         <td><?= $i; ?></td>
                         <td><?=  $row["e_name"]; ?></td>
 						<td><?=  $row["e_id"]; ?></td>
-                        <td><?=  $row["title"]; ?></td> 
-                        <td><?=  $row["date"]; ?></td>
+                        <td><?=  $row1["t_name"]; ?></td> 
+                        <td><?=  $row1["t_date"]; ?></td>
                         <td><?=  $row1["t_room"]; ?></td>
-						<td><?=  $row["status"]; ?></td>
-                        <td></td>  
+						<td><?=  $row1["t_status"]; ?></td>
+                        <td><?=  $row["timestamp"]; ?></td>  
                         <td><?=  $row["e_manager"]; ?></td>
                         <td><?=  $row["attendance"]; ?></td>
 						<td><?=  $row["total"]; ?></td>

@@ -84,23 +84,25 @@ while($row = mysqli_fetch_assoc($result))
                 foreach ($arrayVals as $row) {
                         $i++;
                    ?>
-                   <?php
                    
-                   $check ="SELECT count(n_id) from nominations WHERE title ='$row[t_name]' AND date='$row[t_date]'"; 
-                   $result1 = mysqli_query($conn, $check);
-                   $row1 = mysqli_fetch_assoc($result1);
-                   ?>
                     <tr>
                         <td><?= $i; ?></td>
                         <td><?=  $row["t_name"]; ?></td>
 						<td><?=  $row["t_date"]; ?></td>
                         <td><?=  $row["t_size"]; ?></td>
-                        <td><?=  $row1["count(n_id)"]; ?></td>                        
+                        <td><?=  $row["count"]; ?></td>                        
                         <td><span class="status text-success">&bull;</span> <?=  $row["t_status"]; ?></td>
                         <td><?=  $row["t_room"]; ?></td>
 						<td><?=  $row["t_nomination"]; ?></td>
-                                             
-                        <td><a href="form.php?id=<?php echo $row["t_id"];?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">person_add</i></a></td>
+                        <?php                   
+                        
+                            
+                            if ($row["t_size"] > $row["count"]+5) {?>
+                                <td><a href="form.php?id=<?php echo $row["t_id"];?>" class="delete" title="Nominate" data-toggle="tooltip"><i class="material-icons">person_add</i></a></td>
+                            <?php } else {?>
+                                 <td><a href="form.php?id=<?php echo $row["t_id"];?>" class="delete" title="Training Full.. Apply in waitlist" data-toggle="tooltip"><i class="material-icons">access_time</i></a></td>
+                           <?php }?>
+                                
                     <?php } ?>
                         </tr>
                     <?php 
