@@ -20,9 +20,9 @@ foreach ($arrayVals as $row) {
      $i++;
      $j++;
     $x=$_POST["$i"];
-    $y=$_POST["$j"];
+    //$y=$_POST["$j"];
     echo $x;
-    echo $y;
+    //echo $y;
    
 }
 
