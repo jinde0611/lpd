@@ -119,11 +119,11 @@ while($row = mysqli_fetch_assoc($result))
                         $i++;
                    ?>
     <tr>
-        <td ><input name="no<?= $i; ?>" id="transparent" type="text" value="<?= $i; ?>" size="5"></td>
-        <td ><input name="e_id<?= $i; ?>" id="transparent" type="text" value="<?=  $row["e_id"]; ?>" size="15"></td>
-        <td ><input name="email<?= $i; ?>" id="transparent" type="text" value="<?=  $row["e_email"]; ?>" size="50"></td>
-        <td ><input name="pre<?= $i; ?>" type="text" size="10"></td>
-        <td ><input name="post<?= $i; ?>" type="text" size="10"></td> 
+        <td ><input name="no" id="transparent" type="text" value="<?= $i; ?>" size="5"></td>
+        <td ><input name="e_id" id="transparent" type="text" value="<?=  $row["e_id"]; ?>" size="15"></td>
+        <td ><input name="email" id="transparent" type="text" value="<?=  $row["e_email"]; ?>" size="50"></td>
+        <td ><input name="pre" type="text" size="10"></td>
+        <td ><input name="post" type="text" size="10"></td> 
         <td data-th="Year">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn active">

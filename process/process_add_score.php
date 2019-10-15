@@ -5,19 +5,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 session_start();
-$id = 0;
+$i = 0;
 $id1=$_REQUEST['id'];
 $query = "SELECT * FROM nominations where f_id ='$id1';";
 $result = $conn->query($query);
 
-$row =  mysqli_fetch_assoc($result);
-echo $result;
-// while($row = mysqli_fetch_assoc($result1))
-// 	{
-//     $arrayVals[] = $row;
-//   }
+while($row = mysqli_fetch_assoc($result))
+	{
+    $arrayVals[] = $row;
+  }
 
-  
+foreach ($arrayVals as $row) {
+    $i++;
+    $x=$_POST['e_id1'];
+    echo $x;
+}
 
 
 
