@@ -6,6 +6,7 @@ if ($conn->connect_error) {
 }
 session_start();
 $i = 0;
+$j = 0;
 $id1=$_REQUEST['id'];
 $query = "SELECT * FROM nominations where f_id ='$id1';";
 $result = $conn->query($query);
@@ -16,9 +17,13 @@ while($row = mysqli_fetch_assoc($result))
   }
 
 foreach ($arrayVals as $row) {
-    $i++;
-    $x=$_POST[' $i'];
+     $i++;
+     $j++;
+    $x=$_POST["$i"];
+    $y=$_POST["$j"];
     echo $x;
+    echo $y;
+   
 }
 
 
