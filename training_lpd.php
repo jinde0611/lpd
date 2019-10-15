@@ -77,7 +77,7 @@ while($row = mysqli_fetch_assoc($result))
                         <td><?= $i; ?></td>
                         <td><?=  $row["t_name"]; ?></td>
 						<td><?=  $row["t_date"]; ?></td>
-                        <td><a href="score.php?id=<?php echo $row["t_name"];?>&id1=<?php echo $row["t_date"];?>"  title="Add Pre Score" data-toggle="tooltip"><i class="material-icons">add_circle_outline</i></a></td>                        
+                        <td><a href="score.php?id=<?php echo $row["t_id"];?>"  title="Add Pre Score" data-toggle="tooltip"><i class="material-icons">add_circle_outline</i></a></td>                        
 						
                         
                         

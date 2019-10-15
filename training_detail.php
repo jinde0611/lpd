@@ -95,15 +95,26 @@ while($row = mysqli_fetch_assoc($result))
                         <td><?=  $row["t_room"]; ?></td>
 						<td><?=  $row["t_nomination"]; ?></td>
                         <?php                   
+                        $waitlist= $row["t_size"] + 5;
+                        $deadline=$row["t_date"];
+                        $last_date = date_create($deadline);
+                        $reminder_date = date_modify($last_date,'-1 day');
+                        $current_date = date('Y-m-d');
+                        $reminder_date1= date_format($reminder_date,'Y-m-d');
+                        echo $reminder_date1;
                         
+                        if($current_date < $reminder_date1  ){
                             
-                            if ($row["t_size"] > $row["count"]+5) {?>
+                            if ($row["count"]<$row["t_size"] ) {?>
                                 <td><a href="form.php?id=<?php echo $row["t_id"];?>" class="delete" title="Nominate" data-toggle="tooltip"><i class="material-icons">person_add</i></a></td>
-                            <?php } else {?>
+                            <?php } elseif($row["count"]==$waitlist){?>
+                                <td><a title="Waitlist Full" data-toggle="tooltip" disabled><i class="material-icons">person_add_disabled</i></a></td>
+                               <?php }
+                                else {?>
                                  <td><a href="form.php?id=<?php echo $row["t_id"];?>" class="delete" title="Training Full.. Apply in waitlist" data-toggle="tooltip"><i class="material-icons">access_time</i></a></td>
                            <?php }?>
                                 
-                    <?php } ?>
+                    <?php } }?>
                         </tr>
                     <?php 
                     

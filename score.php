@@ -1,9 +1,13 @@
 <?php
 include('include/header.php');
 $id=$_REQUEST['id'];
-$id1=$_REQUEST['id1'];
-$query ="SELECT * from nominations WHERE title = '$id' AND date = '$id1'";
+
+$query ="SELECT * from nominations WHERE f_id = '$id'";
+$query1 ="SELECT * from training_detail WHERE t_id = '$id'";
+
 $result = $conn->query($query);
+$result1 = $conn->query($query1);
+$row1 = mysqli_fetch_assoc($result1)
 ?>
 
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -99,8 +103,8 @@ while($row = mysqli_fetch_assoc($result))
   }
 ?>
 <div class="container" >
-    <h1>Add Assessment Score for <?php echo $id;?></h1><h1> (<?php echo $id1; ?>)</h1>
-    <form action="training_lpd.php" method="post">
+    <h1>Add Assessment Score for <?php echo $row1["t_name"];?></h1><h1> (<?php echo $row1["t_date"]; ?>)</h1>
+    <form action="process\process_add_score.php?id=<?php echo $id ;?>" method="post">
     <table class="rwd-table">
     <tr>
         <th>NO</th>
