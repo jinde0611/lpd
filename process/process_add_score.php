@@ -19,12 +19,10 @@ foreach ($arrayVals as $row) {
      $i++;
     $x=$_POST["$i"];
     echo $x;
+    
    
-
-
-
-$sql = "UPDATE nominations SET pre_score= $x where f_id = $id1";
-if (mysqli_query($conn, $sql)) {
+$sql .= "UPDATE nominations SET pre_score= $x where f_id = $id1";
+if ($conn->multi_query($sql) === TRUE) {
     //header("Refresh:0,URL=../training_detail.php");
       //echo "New record created successfully";
   } else {
