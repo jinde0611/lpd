@@ -17,7 +17,7 @@ while($row = mysqli_fetch_assoc($result))
 
 foreach ($arrayVals as $row) {
     $i++;
-    $x=$_POST['e_id1'];
+    $x=$_POST[' $i'];
     echo $x;
 }
 
