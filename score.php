@@ -97,7 +97,6 @@ $row1 = mysqli_fetch_assoc($result1)
 </style>
 <?php
 $i=0;
-$j=0;
 while($row = mysqli_fetch_assoc($result))
   {
       $arrayVals[] = $row;
@@ -118,14 +117,13 @@ while($row = mysqli_fetch_assoc($result))
     <?php
                 foreach ($arrayVals as $row) {
                         $i++;
-                        $j++;
                    ?>
     <tr>
         <td ><input name="no" id="transparent" type="text" value="" size="5"></td>
         <td ><input name="" id="transparent" type="text" value="<?=  $row["e_id"]; ?>" size="15"></td>
         <td ><input name="email" id="transparent" type="text" value="<?=  $row["e_email"]; ?>" size="50"></td>
         <td ><input name="<?php echo $i;?>" type="text" size="10"></td>
-        <td ><input name="<?php echo $j;?>" type="text" size="10"></td> 
+        <td ><input name="post" type="text" size="10"></td> 
         <td data-th="Year">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn active">
