@@ -122,7 +122,7 @@ while($row = mysqli_fetch_assoc($result))
         <td ><input name="no" id="transparent" type="text" value="" size="5"></td>
         <td ><input name="" id="transparent" type="text" value="<?=  $row["e_id"]; ?>" size="15"></td>
         <td ><input name="email" id="transparent" type="text" value="<?=  $row["e_email"]; ?>" size="50"></td>
-        <td ><input name="<?php echo $i;?>" type="text" size="10"></td>
+        <td ><input name='pre[".$row['t_id']."]' type="text" size="10"></td>
         <td ><input name="post" type="text" size="10"></td> 
         <td data-th="Year">
           <div class="btn-group" data-toggle="buttons">
