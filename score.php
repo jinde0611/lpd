@@ -122,15 +122,15 @@ while($row = mysqli_fetch_assoc($result))
         <td ><input name="no" id="transparent" type="text" value="" size="5"></td>
         <td ><input name="" id="transparent" type="text" value="<?=  $row["e_id"]; ?>" size="15"></td>
         <td ><input name="email" id="transparent" type="text" value="<?=  $row["e_email"]; ?>" size="50"></td>
-        <td ><input name='pre[".$row['t_id']."]' type="text" size="10"></td>
-        <td ><input name="post" type="text" size="10"></td> 
+        <td ><input name="pre_score" type="text" size="10"></td>
+        <td ><input name="post_score" type="text" size="10"></td> 
         <td data-th="Year">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn active">
-              <input type="radio" name='' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Present</span>
+              <input type="radio" name='<?php echo $i; ?>' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Present</span>
             </label>
             <label class="btn">
-              <input type="radio" name=''><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Absent</span>
+              <input type="radio" name='<?php echo $i; ?>'> <i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Absent</span>
             </label>
           </div>
         </td>

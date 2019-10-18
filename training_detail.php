@@ -101,7 +101,7 @@ while($row = mysqli_fetch_assoc($result))
                         $reminder_date = date_modify($last_date,'-1 day');
                         $current_date = date('Y-m-d');
                         $reminder_date1= date_format($reminder_date,'Y-m-d');
-                        echo $reminder_date1;
+                        
                         
                         if($current_date < $reminder_date1  ){
                             

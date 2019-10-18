@@ -9,41 +9,28 @@ $i = 0;
 $id1=$_REQUEST['id'];
 $query = "SELECT * FROM nominations where f_id ='$id1';";
 $result = $conn->query($query);
-$pre = $_POST['pre']; 
+$row1=mysqli_fetch_assoc($result);
 
-foreach ($pre as $row_id => $value) {
+$x=$_POST["pre_score"];
 
-  //use $key as row id and marks will be your $value. So change your query like this below.
-  
-  $row_id=$key+1;
-  $query = "UPDATE nominations SET pre_score = '$value'
-  WHERE  f_id = $id1";
-  echo $query;
-  $close = mysqli_query($con, $query); 
-}
+    for($i=0;$i<count($_POST['pre_score']);$i++){
 
-// while($row = mysqli_fetch_assoc($result))
-// 	{
-//     $arrayVals[] = $row;
-//   }
+    $stmt = $conn->prepare("UPDATE  `nominations` (`pre_score`, `post_score`, `attendance`) VALUES (?,?,?)");
+    $stmt->bind_param('sss',$_POST['pre_score'][$i],$_POST['post_score'][$i],$_POST['attendance'][$i]);
+    $stmt->execute();
+    $row_count = $stmt->affected_rows;
 
-// foreach ($arrayVals as $row) {
-//      $i++;
-//     $x=$_POST["$i"];
-//     echo $x;
-    
-   
-// $sql .= "UPDATE nominations SET pre_score= $x where f_id = $id1";
-// if ($conn->multi_query($sql) === TRUE) {
-//     //header("Refresh:0,URL=../training_detail.php");
-//       //echo "New record created successfully";
-//   } else {
-//       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-//   }
-// }
-  // $i=0;
-  // mysqli_close($conn);
+    if($row_count>0){
 
+         echo "data inserted";
+
+     }else{
+
+        echo "data inserted";
+
+      } 
+
+   }
 
 
 ?>
